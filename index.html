@@ -13,7 +13,7 @@
   <div id="app">
     <div class="top-area">
       <p>4 tasks</p>
-      <p>date</p>
+      <p>{{ getDate() }}</p>
     </div>
     <div class="input-area">
       <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
