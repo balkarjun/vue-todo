@@ -10,21 +10,20 @@
   --light-green: #52A656;
   --light-green14: #E5F2E5;
   --light-green50: #A0CFA2;
-  --dark-green: #388E3C;
 }
 
 body{
   font-family: 'Rubik', sans-serif;
   color: #222222;
-  background-color: var(--light-green);
+  background-color: var(--light-green50);
+  letter-spacing: 0.25px;
 }
 
 #app{
   width: 100%;
   max-width: 480px;
-  height: calc(100vh - 20px);
-  margin: 10px auto;
-  border-radius: 4px;
+  height: 100vh;
+  margin: auto;
   background-color: white;
 }
 
@@ -54,7 +53,8 @@ input{
 }
 input::placeholder{
   font-size: 15px;
-  color: var(--dark-green);
+  letter-spacing: 0.25px;
+  color: var(--light-green);
 }
 
 #add-button{
@@ -64,10 +64,11 @@ input::placeholder{
   margin: 0 4px;
   border-radius: 50%;
   text-align: center;
-  line-height: 45px;
+  line-height: 46px;
   font-size: 36px;
   color: white;
   cursor: pointer;
+  box-shadow: 0 1px 4px 0 var(--black28);
 }
 
 #task-list{
@@ -81,21 +82,6 @@ input::placeholder{
   display: flex;
 }
 
-.task-title{
-  flex-grow: 1;
-}
-
-.delete-button{
-  font-size: 24px;
-  color: var(--black28);
-  opacity: 0;
-  cursor: pointer;
-}
-
-.task:hover .delete-button{
-  opacity: 1;
-}
-
 .circle{
   width: 24px;
   height: 24px;
@@ -104,6 +90,22 @@ input::placeholder{
   align-self: center;
   margin-right: 16px;
   cursor: pointer;
+}
+
+.task-title{
+  flex-grow: 1;
+  margin-top: 1px;
+}
+
+.delete-button{
+  font-size: 26px;
+  color: var(--black28);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.task:hover .delete-button{
+  opacity: 1;
 }
 
 .active{
