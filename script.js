@@ -2,15 +2,18 @@ new Vue({
   el: '#app',
   data: {
     newTask: '',
-    tasks: [],
-    nextId: 0
+    tasks: [
+      {id: 0, title: 'Design todo app', isCompleted: false},
+      {id: 1, title: 'Create GitHub repository', isCompleted: true},
+      {id: 2, title: 'Clone project to local machine', isCompleted: false}],
+    nextId: 3
   },
   methods: {
     addTask: function () {
       this.tasks.push({
         id: this.nextId,
         title: this.newTask,
-        isComplete: false
+        isCompleted: false
       });
       this.nextId++;
       this.newTask='';

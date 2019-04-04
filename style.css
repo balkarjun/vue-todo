@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+:root{
+  --black60: #666666;
+  --black28: #B8B8B8;
+  --light-green: #43A047;
+  --light-green14: #E5F2E5;
+  --light-green50: #A0CFA2;
+  --dark-green: #388E3C;
+}
+
 body{
   font-family: 'Rubik', sans-serif;
   color: #222222;
-  --black60: #666666;
-  --light-green: #43A047;
-  --light-green14: #E5F2E5;
-  --dark-green: #388E3C;
+  background-color: #A5D6A7;
 }
 
 #app{
@@ -18,8 +24,8 @@ body{
   max-width: 480px;
   height: calc(100vh - 20px);
   margin: 10px auto;
-  background-color: rgba(0, 0, 0, .07);
   border-radius: 4px;
+  background-color: white;
 }
 
 .top-area{
@@ -44,9 +50,11 @@ input{
   outline: none;
   font-family: 'Rubik';
   font-size: 16px;
+  background-color: var(--light-green14);
 }
 input::placeholder{
   font-size: 15px;
+  color: var(--dark-green);
 }
 
 #add-button{
@@ -60,4 +68,42 @@ input::placeholder{
   font-size: 36px;
   color: white;
   cursor: pointer;
+}
+
+#task-list{
+  margin-top: 8px;
+}
+
+.task{
+  height: 60px;
+  margin: 0 16px;
+  line-height: 60px;
+  display: flex;
+}
+
+.task-title{
+  flex-grow: 1;
+}
+
+.delete-button{
+  font-size: 24px;
+  color: var(--black28);
+}
+
+.circle{
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--black28);
+  border-radius: 50%;
+  align-self: center;
+  margin-right: 16px;
+}
+
+.active{
+  background-color: var(--light-green50);
+  border-color: var(--light-green);
+}
+
+.completed{
+  color: var(--black60);
 }
