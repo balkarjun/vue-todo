@@ -17,7 +17,7 @@
     </div>
     <div class="input-area">
       <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
-      <div id="add-button">&plus;</div>
+      <div id="add-button" @click="addTask">&plus;</div>
     </div>
     <div id="task-list">
       <div class="task" v-for="task in tasks" :key="task.id">
