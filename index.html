@@ -16,11 +16,13 @@
       <p>date</p>
     </div>
     <div class="input-area">
-      <input type="text" placeholder="New Task">
+      <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
       <div id="add-button">&plus;</div>
     </div>
     <div id="task-list">
-
+      <div class="task" v-for="task in tasks" :key="task.id">
+        {{ task.title }}
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
