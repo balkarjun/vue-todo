@@ -21,7 +21,7 @@
     </div>
     <div id="task-list">
       <div class="task" v-for="task in tasks" :key="task.id">
-        <span class="circle" :class="{active: task.isCompleted}"></span>
+        <span class="circle" :class="{active: task.isCompleted}" @click="task.isCompleted = !task.isCompleted"></span>
         <p class="task-title" :class="{completed: task.isCompleted}">{{ task.title }}</p>
         <span class="delete-button">&times;</span>
       </div>

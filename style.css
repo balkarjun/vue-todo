@@ -7,7 +7,7 @@
 :root{
   --black60: #666666;
   --black28: #B8B8B8;
-  --light-green: #43A047;
+  --light-green: #52A656;
   --light-green14: #E5F2E5;
   --light-green50: #A0CFA2;
   --dark-green: #388E3C;
@@ -16,7 +16,7 @@
 body{
   font-family: 'Rubik', sans-serif;
   color: #222222;
-  background-color: #A5D6A7;
+  background-color: var(--light-green);
 }
 
 #app{
@@ -88,6 +88,12 @@ input::placeholder{
 .delete-button{
   font-size: 24px;
   color: var(--black28);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.task:hover .delete-button{
+  opacity: 1;
 }
 
 .circle{
@@ -97,6 +103,7 @@ input::placeholder{
   border-radius: 50%;
   align-self: center;
   margin-right: 16px;
+  cursor: pointer;
 }
 
 .active{
@@ -105,5 +112,5 @@ input::placeholder{
 }
 
 .completed{
-  color: var(--black60);
+  color: var(--black28);
 }
