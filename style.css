@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Rubik', sans-serif;
+  color: #222222;
+  --black60: #666666;
+  --light-green: #43A047;
+  --light-green14: #E5F2E5;
+  --dark-green: #388E3C;
+}
+
+#app{
+  width: 100%;
+  max-width: 480px;
+  height: calc(100vh - 20px);
+  margin: 10px auto;
+  background-color: rgba(0, 0, 0, .07);
+  border-radius: 4px;
+}
+
+.top-area{
+  display: flex;
+  padding: 16px 16px 0 16px;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--black60);
+}
+
+.input-area{
+  display: flex;
+  margin-top: 16px;
+}
+
+input{
+  flex-grow: 1;
+  height: 50px;
+  border-radius: 0 25px 25px 0;
+  border: none;
+  padding: 16px;
+  outline: none;
+  font-family: 'Rubik';
+  font-size: 16px;
+}
+input::placeholder{
+  font-size: 15px;
+}
+
+#add-button{
+  background-color: var(--light-green);
+  width: 50px;
+  height: 50px;
+  margin: 0 4px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
