@@ -12,7 +12,7 @@
 <body>
   <div id="app">
     <div class="top-area">
-      <p>4 tasks</p>
+      <p>{{ getTaskCount() }} tasks</p>
       <p>{{ getDate() }}</p>
     </div>
     <div class="input-area">
@@ -23,7 +23,7 @@
       <div class="task" v-for="task in tasks" :key="task.id">
         <span class="circle" :class="{active: task.isCompleted}" @click="task.isCompleted = !task.isCompleted"></span>
         <p class="task-title" :class="{completed: task.isCompleted}">{{ task.title }}</p>
-        <span class="delete-button">&times;</span>
+        <span class="delete-button" @click="deleteTodo(task.id)">&times;</span>
       </div>
     </div>
   </div>

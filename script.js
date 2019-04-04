@@ -23,6 +23,13 @@ new Vue({
       let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
       let d = new Date();
       return `${weekdays[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+    },
+    deleteTodo: function (id) {
+      let index = this.tasks.findIndex(x => x.id === id);
+      this.tasks.splice(index, 1);
+    },
+    getTaskCount: function () {
+      return this.tasks.length;
     }
   }
 })
