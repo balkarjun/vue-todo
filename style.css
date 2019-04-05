@@ -78,7 +78,6 @@ input::placeholder{
 .task{
   height: 60px;
   margin: 0 16px;
-  line-height: 60px;
   display: flex;
 }
 
@@ -94,7 +93,13 @@ input::placeholder{
 
 .task-title{
   flex-grow: 1;
-  margin-top: 1px;
+  margin-right: 16px;
+  align-self: center;
+  padding: 10px 10px 10px 0;
+  outline: none;
+}
+.task-title:focus{
+  color: var(--darkgreen);
 }
 
 .delete-button{
@@ -102,6 +107,7 @@ input::placeholder{
   color: var(--lightgray);
   opacity: 0;
   cursor: pointer;
+  align-self: center;
 }
 
 .task:hover .delete-button{
