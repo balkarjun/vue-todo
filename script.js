@@ -22,17 +22,11 @@ new Vue({
       }
     },
     getDate: function () {
-      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      let d = new Date();
-      return `${weekdays[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+
     },
     deleteTodo: function (id) {
       let index = this.tasks.findIndex(x => x.id === id);
       this.tasks.splice(index, 1);
-    },
-    getTaskCount: function () {
-      return this.tasks.length;
     }
   },
   computed: {
@@ -40,6 +34,15 @@ new Vue({
       if (this.filter === 'active') return this.tasks.filter(x => !x.isCompleted);
       else if (this.filter === 'completed') return this.tasks.filter(x => x.isCompleted);
       return this.tasks;
+    },
+    taskCount: function () {
+      return this.tasks.length;
+    },
+    currentDate: function () {
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const d = new Date();
+      return `${weekdays[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
     }
   }
 })

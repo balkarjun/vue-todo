@@ -12,8 +12,8 @@
 <body>
   <div id="app">
     <div class="top-area">
-      <p>{{ getTaskCount() }} tasks</p>
-      <p>{{ getDate() }}</p>
+      <p>{{ taskCount }} tasks</p>
+      <p>{{ currentDate }}</p>
     </div>
     <div class="input-area">
       <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
