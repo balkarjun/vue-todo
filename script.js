@@ -6,7 +6,8 @@ new Vue({
       {id: 0, title: 'Design todo app', isCompleted: false},
       {id: 1, title: 'Create GitHub repository', isCompleted: true},
       {id: 2, title: 'Clone project to local machine', isCompleted: false}],
-    nextId: 3
+    nextId: 3,
+    filter: 'all'
   },
   methods: {
     addTask: function () {
@@ -32,6 +33,13 @@ new Vue({
     },
     getTaskCount: function () {
       return this.tasks.length;
+    }
+  },
+  computed: {
+    filteredTasks: function () {
+      if (this.filter === 'active') return this.tasks.filter(x => !x.isCompleted);
+      else if (this.filter === 'completed') return this.tasks.filter(x => x.isCompleted);
+      return this.tasks;
     }
   }
 })

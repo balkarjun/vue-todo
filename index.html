@@ -20,16 +20,22 @@
       <div id="add-button" @click="addTask">&plus;</div>
     </div>
     <div id="task-list">
-      <div class="task" v-for="task in tasks" :key="task.id">
+      <div class="task" v-for="task in filteredTasks" :key="task.id">
         <span class="circle" :class="{active: task.isCompleted}" @click="task.isCompleted = !task.isCompleted"></span>
         <p contenteditable="true" @dblclick="" class="task-title" :class="{completed: task.isCompleted}">{{ task.title }}</p>
         <span class="delete-button" @click="deleteTodo(task.id)">&times;</span>
       </div>
     </div>
     <div id="filters">
-      <div class="chip">All</div>
-      <div class="chip">Active</div>
-      <div class="chip">Completed</div>
+      <div class="chip" 
+        :class="{selected: filter==='all'}"
+        @click="filter='all'">All</div>
+      <div class="chip" 
+        :class="{selected: filter==='active'}"
+        @click="filter='active'">Active</div>
+      <div class="chip" 
+        :class="{selected: filter==='completed'}"
+        @click="filter='completed'">Completed</div>
     </div>
   </div>
   <script src="script.js"></script>
