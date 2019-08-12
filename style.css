@@ -27,11 +27,17 @@ button {
   background: none;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
 #app {
-  width: 650px;
-  height: 550px;
+  width: 600px;
   margin: 40px auto;
-  border-radius: 10px;
   background-color: white;
 }
 
@@ -84,10 +90,10 @@ button {
 
 .chip {
   width: 130px;
-  height: 35px;
+  height: 32px;
   text-align: center;
   border-radius: 20px;
-  line-height: 35px;
+  line-height: 32px;
   border: 1px solid var(--lightgray);
   cursor: pointer;
 }
@@ -96,6 +102,11 @@ button {
   background-color: var(--lightgreen);
   color: var(--darkgreen);
   border: none;
+}
+
+.tasklist {
+  height: 350px;
+  overflow-y: scroll;
 }
 
 .task {

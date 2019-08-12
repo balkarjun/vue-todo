@@ -29,7 +29,7 @@
       >{{ filter }}</button>
     </div>
 
-    <div>
+    <div class="tasklist">
       <div class="task" v-for="(task, index) in filteredTasks" :key="index">
         <span class="circle" @click="toggleComplete(index)" :class="{ active: task.isCompleted }"></span>
         <p class="title" :class="{ completed: task.isCompleted }">{{ task.title }}</p>
