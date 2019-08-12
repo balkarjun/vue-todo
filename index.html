@@ -17,7 +17,9 @@
     
     <div class="inputbar">
       <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
-      <button @click="addTask"></button>
+      <button @click="addTask">
+        <img src="add.svg">
+      </button>
     </div>
 
     <div class="filters">
@@ -31,7 +33,9 @@
 
     <div class="tasklist">
       <div class="task" v-for="(task, index) in filteredTasks" :key="index">
-        <span class="circle" @click="toggleComplete(index)" :class="{ active: task.isCompleted }"></span>
+        <span class="circle" @click="toggleComplete(index)" :class="{ active: task.isCompleted }">
+          <img v-if="task.isCompleted" src="done.svg">
+        </span>
         <p class="title" :class="{ completed: task.isCompleted }">{{ task.title }}</p>
         <button class="remove" @click="removeTask(index)">Remove</button>
       </div>
