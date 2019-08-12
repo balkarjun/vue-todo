@@ -3,10 +3,11 @@ new Vue({
   data: {
     newTask: '',
     tasks: [
-      {title: 'Design todo app', isCompleted: false},
-      {title: 'Create GitHub repository', isCompleted: true},
-      {title: 'Clone project to local machine', isCompleted: false}
+      {id: 0, title: 'Design todo app', isCompleted: false},
+      {id: 1, title: 'Create GitHub repository', isCompleted: true},
+      {id: 2, title: 'Clone project to local machine', isCompleted: false}
     ],
+    nextId: 3,
     filters: ['All', 'Active', 'Completed'],
     chosenFilter: 'All'
   },
@@ -14,16 +15,20 @@ new Vue({
     addTask() {
       if (this.newTask.trim() !== '') {
         this.tasks.push({
+          id: this.nextId,
           title: this.newTask,
           isCompleted: false
         });
+        this.nextId++;
       }
       this.newTask = '';
     },
-    toggleComplete(index) {
+    toggleComplete(id) {
+      const index = this.tasks.findIndex(x => x.id === id);
       this.tasks[index].isCompleted = !this.tasks[index].isCompleted;
     },
-    removeTask(index) {
+    removeTask(id) {
+      const index = this.tasks.findIndex(x => x.id === id);
       this.tasks.splice(index, 1);
     }
   },

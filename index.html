@@ -32,12 +32,12 @@
     </div>
 
     <div class="tasklist">
-      <div class="task" v-for="(task, index) in filteredTasks" :key="index">
-        <button class="circle" @click="toggleComplete(index)" :class="{ active: task.isCompleted }">
+      <div class="task" v-for="task in filteredTasks" :key="task.id">
+        <button class="circle" @click="toggleComplete(task.id)" :class="{ active: task.isCompleted }">
           <img v-if="task.isCompleted" src="done.svg">
         </button>
         <p class="title" :class="{ completed: task.isCompleted }">{{ task.title }}</p>
-        <button class="remove" @click="removeTask(index)">Remove</button>
+        <button class="remove" @click="removeTask(task.id)">Remove</button>
       </div>
     </div>
   </div>
