@@ -4,38 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Todo App</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
-    <div class="top-area">
-      <p>{{ taskCount }} tasks</p>
-      <p>{{ currentDate }}</p>
+    <div class="info">
+      {{ currentDate }} &centerdot; {{ tasks.length }} tasks
     </div>
-    <div class="input-area">
+    
+    <div class="inputbar">
       <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
-      <div id="add-button" @click="addTask">&plus;</div>
+      <button @click="addTask"></button>
     </div>
-    <div id="task-list">
-      <div class="task" v-for="task in filteredTasks" :key="task.id">
-        <span class="circle" :class="{active: task.isCompleted}" @click="task.isCompleted = !task.isCompleted"></span>
-        <p contenteditable="true" @dblclick="" class="task-title" :class="{completed: task.isCompleted}">{{ task.title }}</p>
-        <span class="delete-button" @click="deleteTodo(task.id)">&times;</span>
+
+    <div class="filters">
+      <button
+        class="chip" 
+        v-for="filter in filters" 
+        @click="chosenFilter = filter"
+        :class="{ selected: filter === chosenFilter }"
+      >{{ filter }}</button>
+    </div>
+
+    <div>
+      <div class="task" v-for="(task, index) in filteredTasks" :key="index">
+        <span class="circle" @click="toggleComplete(index)" :class="{ active: task.isCompleted }"></span>
+        <p class="title" :class="{ completed: task.isCompleted }">{{ task.title }}</p>
+        <button class="remove" @click="removeTask(index)">Remove</button>
       </div>
-    </div>
-    <div id="filters">
-      <div class="chip" 
-        :class="{selected: filter==='all'}"
-        @click="filter='all'">All</div>
-      <div class="chip" 
-        :class="{selected: filter==='active'}"
-        @click="filter='active'">Active</div>
-      <div class="chip" 
-        :class="{selected: filter==='completed'}"
-        @click="filter='completed'">Completed</div>
     </div>
   </div>
   <script src="script.js"></script>

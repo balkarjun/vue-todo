@@ -1,87 +1,113 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --darkgray: #666666;
-  --lightgray: #B8B8B8;
+  --lightgray: #D9D9D9;
   --darkgreen: #52A656;
-  --green: #A0CFA2;
   --lightgreen: #E5F2E5;
 }
 
-body{
+body {
   font-family: 'Rubik', sans-serif;
   color: #222222;
-  background-color: var(--green);
+  background-color: #555;
   letter-spacing: 0.25px;
 }
 
-#app{
-  width: 100%;
-  max-width: 480px;
-  height: 100vh;
-  margin: auto;
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  background: none;
+}
+
+#app {
+  width: 650px;
+  height: 550px;
+  margin: 40px auto;
+  border-radius: 10px;
   background-color: white;
 }
 
-.top-area{
-  display: flex;
-  padding: 16px 16px 0 16px;
-  justify-content: space-between;
+.info {
   font-size: 15px;
+  padding: 16px 0;
+  text-align: center;
   color: var(--darkgray);
 }
 
-.input-area{
+.inputbar {
   display: flex;
-  margin-top: 16px;
 }
 
-input{
+.inputbar input {
   flex-grow: 1;
   height: 50px;
   border-radius: 0 25px 25px 0;
-  border: none;
-  padding: 16px;
+  border: 1px solid var(--lightgreen);
+  border-left: none;
+  padding: 24px;
   outline: none;
-  font-family: 'Rubik';
-  font-size: 16px;
-  background-color: var(--lightgreen);
+  font: inherit;
 }
-input::placeholder{
+.inputbar input::placeholder {
   font-size: 15px;
   letter-spacing: 0.25px;
-  color: var(--darkgreen);
+  color: var(--darkgray);
+}
+.inputbar input:focus {
+  border-color: var(--darkgreen);
 }
 
-#add-button{
-  background-color: var(--darkgreen);
+.inputbar button {
   width: 50px;
   height: 50px;
-  margin: 0 4px;
+  margin: 0 16px;
   border-radius: 50%;
-  text-align: center;
-  line-height: 46px;
-  font-size: 36px;
   color: white;
-  cursor: pointer;
+  background-color: var(--darkgreen);
   box-shadow: 0 1px 4px 0 var(--lightgray);
 }
 
-#task-list{
-  margin-top: 8px;
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
-.task{
-  height: 60px;
-  margin: 0 16px;
+.chip {
+  width: 130px;
+  height: 35px;
+  text-align: center;
+  border-radius: 20px;
+  line-height: 35px;
+  border: 1px solid var(--lightgray);
+  cursor: pointer;
+}
+
+.selected {
+  background-color: var(--lightgreen);
+  color: var(--darkgreen);
+  border: none;
+}
+
+.task {
+  padding: 16px;
   display: flex;
 }
 
-.circle{
+.task:hover{
+  background-color: whitesmoke;
+}
+
+.circle {
   width: 24px;
   height: 24px;
   border: 1px solid var(--lightgray);
@@ -91,60 +117,29 @@ input::placeholder{
   cursor: pointer;
 }
 
-.task-title{
+.title {
   flex-grow: 1;
-  margin-right: 16px;
   align-self: center;
-  padding: 10px 10px 10px 0;
-  outline: none;
-}
-.task-title:focus{
-  color: var(--darkgreen);
 }
 
-.delete-button{
-  font-size: 26px;
-  color: var(--lightgray);
+.remove {
+  padding: 4px 12px;
+  border-radius: 20px;
+  align-self: center;
   opacity: 0;
-  cursor: pointer;
-  align-self: center;
+  color: #D32F2F;
+  background-color: #F9E0E0;
 }
 
-.task:hover .delete-button{
+.task:hover .remove {
   opacity: 1;
 }
 
-.active{
-  background-color: var(--green);
-  border-color: var(--darkgreen);
+.active {
+  background-color: var(--darkgreen);
+  border: none;
 }
 
-.completed{
+.completed {
   color: var(--lightgray);
-}
-
-#filters{
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  max-width: 480px;
-  margin-bottom: 24px;
-}
-
-.chip{
-  width: 110px;
-  height: 30px;
-  text-align: center;
-  border-radius: 15px;
-  line-height: 30px;
-  border: 1px solid var(--lightgray);
-  cursor: pointer;
-}
-
-.selected{
-  background-color: var(--lightgreen);
-  border: 1px solid var(--green);
-  color: var(--darkgreen);
 }

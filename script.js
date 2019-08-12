@@ -3,46 +3,44 @@ new Vue({
   data: {
     newTask: '',
     tasks: [
-      {id: 0, title: 'Design todo app', isCompleted: false},
-      {id: 1, title: 'Create GitHub repository', isCompleted: true},
-      {id: 2, title: 'Clone project to local machine', isCompleted: false}],
-    nextId: 3,
-    filter: 'all'
+      {title: 'Design todo app', isCompleted: false},
+      {title: 'Create GitHub repository', isCompleted: true},
+      {title: 'Clone project to local machine', isCompleted: false}
+    ],
+    filters: ['All', 'Active', 'Completed'],
+    chosenFilter: 'All'
   },
   methods: {
-    addTask: function () {
-      if(this.newTask.trim() !== ''){
+    addTask() {
+      if (this.newTask.trim() !== '') {
         this.tasks.push({
-          id: this.nextId,
           title: this.newTask,
           isCompleted: false
         });
-        this.nextId++;
-        this.newTask='';
       }
+      this.newTask = '';
     },
-    getDate: function () {
-
+    toggleComplete(index) {
+      this.tasks[index].isCompleted = !this.tasks[index].isCompleted;
     },
-    deleteTodo: function (id) {
-      let index = this.tasks.findIndex(x => x.id === id);
+    removeTask(index) {
       this.tasks.splice(index, 1);
     }
   },
   computed: {
-    filteredTasks: function () {
-      if (this.filter === 'active') return this.tasks.filter(x => !x.isCompleted);
-      else if (this.filter === 'completed') return this.tasks.filter(x => x.isCompleted);
+    filteredTasks() {
+      if (this.chosenFilter === 'Active') {
+        return this.tasks.filter(x => !x.isCompleted);
+      } else if (this.chosenFilter === 'Completed') {
+        return this.tasks.filter(x => x.isCompleted);
+      }
       return this.tasks;
     },
-    taskCount: function () {
-      return this.tasks.length;
-    },
-    currentDate: function () {
-      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    currentDate() {
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       const d = new Date();
       return `${weekdays[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
     }
   }
-})
+});
