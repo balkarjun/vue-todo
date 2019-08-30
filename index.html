@@ -14,12 +14,10 @@
       {{ currentDate }} &centerdot; {{ tasks.length }} tasks
     </div>
     
-    <div class="inputbar">
-      <input type="text" placeholder="New Task" v-model="newTask" @keyup.enter="addTask">
-      <button @click="addTask">
-        <img src="add.svg">
-      </button>
-    </div>
+    <form @submit.prevent="addTask" class="inputbar">
+      <input type="text" placeholder="New Task" v-model="newTask">
+      <button><img src="add.svg"></button>
+    </form>
 
     <div class="filters">
       <button
@@ -32,7 +30,7 @@
 
     <div class="tasklist">
       <div class="task" v-for="task in filteredTasks" :key="task.id">
-        <button class="circle" @click="toggleComplete(task.id)" :class="{ completed: task.isCompleted }">
+        <button class="circle" :class="{ completed: task.isCompleted }" @click="toggleComplete(task.id)">
           <img v-if="task.isCompleted" src="done.svg">
         </button>
         <p :class="{ light: task.isCompleted }">{{ task.title }}</p>
