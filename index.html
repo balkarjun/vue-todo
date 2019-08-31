@@ -30,10 +30,10 @@
 
     <div class="tasklist">
       <div class="task" v-for="task in filteredTasks" :key="task.id">
-        <button class="circle" :class="{ completed: task.isCompleted }" @click="toggleComplete(task.id)">
-          <img v-if="task.isCompleted" src="done.svg">
+        <button class="circle" :class="{ done: task.done }" @click="toggle(task.id)">
+          <img v-if="task.done" src="done.svg">
         </button>
-        <p :class="{ light: task.isCompleted }">{{ task.title }}</p>
+        <p :class="{ light: task.done }">{{ task.title }}</p>
         <button class="remove" @click="removeTask(task.id)">Remove</button>
       </div>
     </div>

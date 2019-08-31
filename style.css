@@ -128,7 +128,7 @@ input::placeholder {
   border: 1px solid var(--gray-primary);
 }
 
-.completed {
+.done {
   background-color: var(--accent-primary);
   border: none;
 }
