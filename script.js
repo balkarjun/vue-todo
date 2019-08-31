@@ -41,11 +41,9 @@ new Vue({
       }
       return this.tasks;
     },
-    currentDate() {
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      const d = new Date();
-      return `${weekdays[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+    today() {
+      const options = { weekday: 'short', day: 'numeric', month: 'short' };
+      return new Date().toLocaleDateString('en-GB', options);
     }
   }
 });
